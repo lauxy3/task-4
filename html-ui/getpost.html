@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pets API</title>
+    <script>
+ 
+function getCarts(){
+        var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+        };
+ 
+        fetch("http://localhost:cart/cart", requestOptions)
+        .then(response => response.text())
+        .then(result => {console.log(result);
+                    document.getElementById("output").innerHTML = result;
+                    })
+        .catch(error => console.log('error', error));
+}
+ 
+function addCart(){
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+ 
+            var body = JSON.stringify({
+            "CartId": 0,
+            "CartDescription": "Shopping",
+            "CartPriority": "High",
+            "CartStatus" : "COMPLETED",
+            "CustomerID" : "0"
+            });
+ 
+            var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: body,
+            redirect: 'follow'
+            };
+ 
+            fetch("http://localhost:cart/Cart", requestOptions)
+            .then(response => response.text())
+            .then(result => {console.log(result);
+                    document.getElementById("output").innerHTML = result;
+                    })
+            .catch(error => console.log('error', error));
+            }
+ 
+    </script>
+</head>
+<body>
+    <button onclick="getCarts()">Get Cart</button>
+    <button onclick="addCart()">Add Cart</button>
+    <div id="output"></div>
+ 
+ 
+</body>
+</html>
