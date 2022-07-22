@@ -1,7 +1,7 @@
 /* 
  Common URLs so that it's easy to update
 */
-var customer_login_url = 'http://localhost:customers/login/'
+var customer_login_url = 'http://localhost/customers/login/'
 var customer_url = 'http://localhost:customers/customer/'
 var inventory_url = 'http://localhost:inventory/inventory/'
 var product_url = 'http://localhost:products/product/'
